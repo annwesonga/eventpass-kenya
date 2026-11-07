@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EventPass Kenya | Match Tickets</title>
+<style>
+:root{--navy:#101b35;--blue:#1749a2;--gold:#f4c542;--muted:#667085}
+*{box-sizing:border-box}body{margin:0;font-family:Arial, sans-serif;background:#f3f6fb;color:#182230}
+header{background:var(--navy);color:white;padding:22px 7%;display:flex;justify-content:space-between;align-items:center}
+.brand{font-size:23px;font-weight:800;letter-spacing:.3px}.brand span{color:var(--gold)}
+main{max-width:950px;margin:38px auto;padding:0 18px}
+.hero{background:linear-gradient(135deg,#142b58,#1749a2);color:white;border-radius:18px;padding:34px 28px;text-align:center;box-shadow:0 12px 28px #142b5820}
+.eyebrow{color:#f8d76a;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:bold}
+h1{font-size:clamp(28px,5vw,43px);margin:12px 0}
+.teams{font-size:clamp(21px,4vw,30px);font-weight:700;margin:18px 0}
+.details{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:22px}
+.pill{background:#ffffff1c;border:1px solid #ffffff35;border-radius:30px;padding:10px 15px;font-size:14px}
+.panel{background:white;border-radius:16px;padding:24px;margin-top:22px;box-shadow:0 5px 22px #101b350d}
+h2{margin:0 0 14px;font-size:21px}
+.capacity{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.number{font-size:32px;font-weight:800;color:var(--blue)}
+.note{color:var(--muted);font-size:14px;line-height:1.5}
+.status{display:inline-block;background:#fff4d6;color:#805900;padding:8px 12px;border-radius:20px;font-size:13px;font-weight:bold}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
+</style>
+</head>
+<body>
+<header><div class="brand">EventPass <span>Kenya</span></div><div>Match tickets</div></header>
+<main>
+<section class="hero">
+<div class="eyebrow">Live football event</div>
+<h1>Match Day</h1>
+<div class="teams">BAYERN MUNICH <span style="color:#f4c542">VS</span> AJAX</div>
+<div class="details">
+<div class="pill">📅 5 January 2027</div>
+<div class="pill">🕗 8:15 PM (EAT)</div>
+<div class="pill">📍 Raila Odinga International Stadium, Nairobi</div>
+</div>
+</section>
+<section class="panel">
+<div class="capacity">
+<div><h2>Ticket availability</h2><div class="number">60,000 tickets</div><div class="note">Total ticket capacity provided for this event</div></div>
+<span class="status">Sales not yet enabled</span>
+</div>
+</section>
+<section class="panel">
+<h2>Ticket prices</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px">
+<div style="border:1px solid #e4e9f2;border-radius:12px;padding:16px"><div style="color:#667085;font-size:13px">REGULAR</div><div style="font-size:25px;font-weight:800;color:#1749a2;margin-top:7px">KSh 1,500</div><div class="note">20,000 tickets</div></div>
+<div style="border:1px solid #e4e9f2;border-radius:12px;padding:16px"><div style="color:#667085;font-size:13px">VIP</div><div style="font-size:25px;font-weight:800;color:#1749a2;margin-top:7px">KSh 2,500</div><div class="note">20,000 tickets</div></div>
+<div style="border:1px solid #e4e9f2;border-radius:12px;padding:16px"><div style="color:#667085;font-size:13px">VVIP</div><div style="font-size:25px;font-weight:800;color:#1749a2;margin-top:7px">KSh 5,000</div><div class="note">20,000 tickets</div></div>
+</div>
+</section>
+
+<section class="panel" id="booking">
+<h2>Book your tickets</h2>
+<p class="note">Choose your ticket category and quantity to see the estimated total. This is a preview only; no reservation or payment will be processed.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:18px">
+<label style="font-weight:700;font-size:14px">Ticket category
+<select id="ticketType" style="display:block;width:100%;padding:13px;margin-top:7px;border:1px solid #cfd7e5;border-radius:9px;font-size:16px">
+<option value="1500">Regular — KSh 1,500</option>
+<option value="2500">VIP — KSh 2,500</option>
+<option value="5000">VVIP — KSh 5,000</option>
+</select></label>
+<label style="font-weight:700;font-size:14px">Number of tickets
+<input id="ticketQty" type="number" min="1" max="20000" value="1" style="display:block;width:100%;padding:13px;margin-top:7px;border:1px solid #cfd7e5;border-radius:9px;font-size:16px"></label>
+</div>
+<div style="background:#f3f6fb;border-radius:12px;padding:16px;margin-top:18px">
+<div class="note">Estimated total</div>
+<div id="ticketTotal" style="font-size:29px;font-weight:800;color:#1749a2;margin-top:5px">KSh 1,500</div>
+</div>
+
+<div style="border:1px solid #d9e2f1;border-radius:12px;padding:16px;margin-top:18px">
+  <h3 style="margin:0 0 8px">M-Pesa Till payment</h3>
+  <p class="note">Till number supplied: please confirm with the authorised event organiser that this is the correct official payment Till before publishing or accepting payments.</p>
+  <div style="font-size:28px;font-weight:800;letter-spacing:2px;color:#1749a2;margin:12px 0">4336548</div>
+  <p class="note">This website preview does not verify payments or issue tickets. Customers should only pay after the organiser confirms the Till and the payment instructions.</p>
+</div>
+
+<button id="bookingButton" type="button" style="width:100%;border:0;border-radius:10px;background:#1749a2;color:white;font-size:16px;font-weight:700;padding:14px;margin-top:16px;cursor:pointer">Preview booking</button>
+<p id="bookingMessage" class="note" aria-live="polite" style="margin-top:12px"></p>
+</section>
+<script>
+(function(){
+ const type=document.getElementById('ticketType');
+ const qty=document.getElementById('ticketQty');
+ const total=document.getElementById('ticketTotal');
+ const message=document.getElementById('bookingMessage');
+ const button=document.getElementById('bookingButton');
+ const fmt=n=>'KSh '+Number(n).toLocaleString('en-KE');
+ function update(){
+   let count=Number(qty.value);
+   if(!Number.isFinite(count)||count<1){total.textContent='Enter at least 1 ticket';return;}
+   if(count>20000){total.textContent='Maximum 20,000 per category';return;}
+   total.textContent=fmt(Number(type.value)*count);
+   message.textContent='';
+ }
+ type.addEventListener('change',update);
+ qty.addEventListener('input',update);
+ button.addEventListener('click',function(){
+   let count=Number(qty.value);
+   if(!Number.isInteger(count)||count<1||count>20000){
+     message.textContent='Please enter a whole number from 1 to 20,000.';
+     return;
+   }
+   message.textContent='Booking preview only: '+count+' ticket(s), estimated total '+fmt(Number(type.value)*count)+'. No tickets have been reserved or paid for.';
+ });
+ update();
+})();
+</script>
+
+<p class="note" style="text-align:center;margin-top:20px">Independent website prototype. This is not an official stadium or club ticket office. Ticket sales and payment processing must be enabled only with valid event-organiser authorisation.</p>
+</main>
+
+<section class="panel" id="payment-confirmation">
+<h2>Submit payment reference</h2>
+<p class="note">After paying the confirmed event-organiser Till, customers can enter their M-Pesa transaction code below. This demo form does not send the code to the organiser or verify payment.</p>
+<label style="display:block;font-weight:700;font-size:14px;margin-top:14px">M-Pesa transaction code
+<input id="mpesaCode" type="text" maxlength="20" placeholder="Example: QAB12CDE34" autocomplete="off" style="display:block;width:100%;padding:13px;margin-top:7px;border:1px solid #cfd7e5;border-radius:9px;font-size:16px;text-transform:uppercase">
+</label>
+<button id="confirmPaymentButton" type="button" style="width:100%;border:0;border-radius:10px;background:#1749a2;color:white;font-size:16px;font-weight:700;padding:14px;margin-top:14px;cursor:pointer">Preview payment submission</button>
+<p id="paymentConfirmationMessage" class="note" aria-live="polite" style="margin-top:12px"></p>
+</section>
+<script>
+(function(){
+ const input=document.getElementById('mpesaCode');
+ const button=document.getElementById('confirmPaymentButton');
+ const message=document.getElementById('paymentConfirmationMessage');
+ if(!input||!button||!message)return;
+ button.addEventListener('click',function(){
+   const code=input.value.trim().toUpperCase();
+   if(!/^[A-Z0-9]{8,20}$/.test(code)){
+     message.textContent='Enter a transaction code containing 8–20 letters or numbers.';
+     return;
+   }
+   message.textContent='Demo only: your reference has been entered on this page, but it has NOT been sent, checked, or verified. No ticket has been issued.';
+ });
+})();
+</script>
+
+
+<section class="panel" id="admin-dashboard">
+<h2>Organiser dashboard</h2>
+<p class="note">Demo layout for authorised organisers. Real access control, a secure database and Till-statement verification must be connected before this dashboard is used for live bookings.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:16px 0">
+<div style="background:#f3f6fb;padding:14px;border-radius:10px"><div class="note">Total capacity</div><div style="font-size:23px;font-weight:800">60,000</div></div>
+<div style="background:#f3f6fb;padding:14px;border-radius:10px"><div class="note">Pending checks</div><div id="pendingCount" style="font-size:23px;font-weight:800">0</div></div>
+<div style="background:#f3f6fb;padding:14px;border-radius:10px"><div class="note">Approved bookings</div><div id="approvedCount" style="font-size:23px;font-weight:800">0</div></div>
+</div>
+<h3 style="margin:20px 0 8px">Payment references awaiting review</h3>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:14px">
+<thead><tr style="text-align:left;background:#f3f6fb"><th style="padding:10px">Booking ref.</th><th style="padding:10px">Ticket type</th><th style="padding:10px">Amount</th><th style="padding:10px">Status</th></tr></thead>
+<tbody><tr><td colspan="4" style="padding:16px;text-align:center;color:#667085">No real payment records connected yet.</td></tr></tbody>
+</table>
+</div>
+<p class="note" style="margin-top:14px">When connected, organisers should match each transaction against the official M-Pesa Till statement before approving it. Never approve a booking based only on a screenshot or an unverified code.</p>
+<span class="status">Demo dashboard — not connected to live payments</span>
+</section>
+
+
+<section class="panel" id="digital-ticket">
+<h2>Digital ticket preview</h2>
+<p class="note">After an organiser verifies payment, the live system can issue a unique digital ticket with a QR code. The example below is a design preview only and is not valid for entry.</p>
+<div style="border:1px dashed #9aabc5;border-radius:14px;padding:18px;display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+<div style="width:120px;height:120px;background:#f3f6fb;border-radius:8px;display:grid;place-items:center;color:#1749a2;font-size:13px;text-align:center;font-weight:700">QR CODE<br>GENERATED<br>AFTER APPROVAL</div>
+<div style="flex:1;min-width:180px">
+<div style="font-size:12px;color:#667085;letter-spacing:1px">EVENTPASS KENYA</div>
+<div style="font-size:20px;font-weight:800;margin:5px 0">BAYERN MUNICH vs AJAX</div>
+<div class="note">5 January 2027 · 8:15 PM</div>
+<div class="note">Raila Odinga International Stadium</div>
+<div class="status" style="margin-top:10px">Sample only — not an entry ticket</div>
+</div>
+</div>
+<p class="note" style="margin-top:12px">For live use, each QR code must contain a unique, server-generated ticket ID and be checked against the organiser's ticket database at the gate. Do not issue entry QR codes before payment approval.</p>
+</section>
+
+
+<section class="panel" id="gate-validation">
+<h2>Stadium gate — QR ticket validation</h2>
+<p class="note">Gate-staff interface preview. In the live system, staff will scan the QR code using an authorised scanner and the server will check the ticket ID against the approved-ticket database.</p>
+<label style="display:block;font-weight:700;font-size:14px;margin-top:14px">Ticket ID
+<input id="gateTicketId" type="text" placeholder="Enter ticket ID for test" autocomplete="off" style="display:block;width:100%;padding:13px;margin-top:7px;border:1px solid #cfd7e5;border-radius:9px;font-size:16px">
+</label>
+<button id="gateCheckButton" type="button" style="width:100%;border:0;border-radius:10px;background:#1749a2;color:white;font-size:16px;font-weight:700;padding:14px;margin-top:14px;cursor:pointer">Check demo ticket</button>
+<p id="gateCheckMessage" class="note" aria-live="polite" style="margin-top:12px"></p>
+<div class="note" style="margin-top:14px"><strong>Live validation rules:</strong> accept only organiser-approved tickets; reject unknown, unpaid, cancelled or already-used tickets; mark a ticket as used immediately after successful entry.</div>
+<span class="status">Not connected to a live ticket database — no entry decisions can be made here</span>
+</section>
+<script>
+(function(){
+ const input=document.getElementById('gateTicketId');
+ const button=document.getElementById('gateCheckButton');
+ const message=document.getElementById('gateCheckMessage');
+ if(!input||!button||!message)return;
+ button.addEventListener('click',function(){
+   if(!input.value.trim()){
+     message.textContent='Enter a ticket ID to see the demonstration message.';
+     return;
+   }
+   message.textContent='Demo only: no live ticket database is connected, so this ticket cannot be verified. Do not admit anyone based on this preview.';
+ });
+})();
+</script>
+
+<footer>© 2026 EventPass Kenya</footer>
+</body>
+</html>
